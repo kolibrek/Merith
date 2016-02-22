@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[CreateAssetMenu]
 public class HealthPack : ItemStack {
-
-	GameObject player;
 
 	public HealthPack() {
 		name = "Health Pack";
@@ -15,7 +14,7 @@ public class HealthPack : ItemStack {
 	public override bool UseItem(GameObject user) {
 		user.GetComponent<HealthController>().TakeDamage(-5);
 		user.GetComponent<Inventory>().Remove(this);
-		user.GetComponent<ParticleSystem>().Play();
+		GameObject.Find("Player/HealthParticleSystem").GetComponent<ParticleSystem>().Play();
 		return true;
 	}
 }

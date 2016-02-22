@@ -2,7 +2,7 @@
 using System.Collections;
 
 public abstract class ItemEntity : MonoBehaviour {
-
+	
 	public Item itemType;
 	[Range(-4,4)]
 	public float spinSpeed = 1.5f;

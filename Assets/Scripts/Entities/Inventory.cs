@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour {
 
 	public int size;
 	List<Item> inventory;
+	Item current;
 	GameObject invDisplay;
 	Image invImage;
 	Text invText;
@@ -14,8 +15,9 @@ public class Inventory : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		inventory = new List<Item>();
+		current = null;
 		invDisplay = GameObject.Find("InventoryDisplay");
-		invImage = invDisplay.GetComponentInChildren<Image>();
+		invImage = GameObject.Find ("InvImage").GetComponent<Image>();
 		invText = invDisplay.GetComponentInChildren<Text>();
 	}
 
@@ -26,30 +28,39 @@ public class Inventory : MonoBehaviour {
 	public bool Add(Item item) {
 		if (inventory.Count < size) {
 			inventory.Add(item);
-			invText.text = item.name;
-			invImage.sprite = item.sprite;
-			invImage.color = new Color(1,1,1,1);
+			ResetCurrent();
 			return true;
 		}
 		return false;
 	}
 
-	public bool Remove(Item item) {
-		invText.text = "";
-		invImage.sprite = null;
-		invImage.color = new Color(1,1,1,0);
-		return inventory.Remove(item);
+	public void Remove(Item item) {
+		inventory.Remove(item);
+		ResetCurrent();
 	}
 
 	public void UseCurrent() {
-		if (inventory.Count != 0) {
-			Item current = inventory[0];
+		if (current && inventory.Count != 0) {
 			Debug.Log("Using " + current.GetName());
 			current.UseItem(gameObject);
+			// Replace current slot with next item in inventory
+			ResetCurrent();
 		} else {
 			Debug.Log("Inventory Empty!");
 		}
+	}
 
+	public void ResetCurrent() {
+		current = (inventory.Count > 0)? inventory[0] : null;
+		if (current) {
+			invText.text = current.name;
+			invImage.sprite = current.sprite;
+			invImage.color = new Color(1,1,1,1);
+		} else {
+			invText.text = "inventory";
+			invImage.sprite = null;
+			invImage.color = new Color(0,0,0,0);
+		}
 	}
 
 	public void AddSlots(int slots) {
@@ -62,9 +73,5 @@ public class Inventory : MonoBehaviour {
 		} else {
 			size = 0;
 		}
-	}
-
-	public void Sort() {
-		inventory.Sort();
 	}
 }

@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Entities\Inventory.cs" />
      <Compile Include="Assets\Scripts\Entities\ItemEntities\HealthPackEntity.cs" />
      <Compile Include="Assets\Scripts\Entities\ItemEntities\ItemEntity.cs" />
+     <Compile Include="Assets\Scripts\Entities\ItemEntities\JumpBoostEntity.cs" />
      <Compile Include="Assets\Scripts\Entities\PlayerAnimator.cs" />
      <Compile Include="Assets\Scripts\Entities\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Entities\TerrainEntities\ObjectiveEntity.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\Items\IEquipable.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\Items\ItemStack.cs" />
+     <Compile Include="Assets\Scripts\Items\JumpBoost.cs" />
      <Compile Include="Assets\Scripts\UI\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\UI\GameOverDisplay.cs" />
      <Compile Include="Assets\Scripts\UI\HealthBar.cs" />

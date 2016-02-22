@@ -2,6 +2,7 @@
 using System.Collections;
 
 [RequireComponent (typeof(Controller2D))]
+[DisallowMultipleComponent]
 public class PlayerController : MonoBehaviour {
 
 	public float speed = 10;
