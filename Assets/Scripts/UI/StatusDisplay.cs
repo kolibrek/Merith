@@ -25,6 +25,8 @@ public class StatusDisplay : MonoBehaviour {
 		statusDisplay.text += "\nCollision objects:";
 		StartCoroutine("ListColliders");
 		statusDisplay.text += "\nInventory:";
+		statusDisplay.text += "\n Equipped: ";
+		statusDisplay.text += (inventory.equipped != null)? inventory.equipped.name : "None";
 		StartCoroutine("ListInventory");
 	}
 

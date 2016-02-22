@@ -5,9 +5,16 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
 
+	public Controller2D controller;
 	public int size;
 	List<Item> inventory;
-	Item current;
+	int current;
+
+	[HideInInspector]
+	public Item equipped;
+
+	bool scrollAxisInUse = false;
+
 	GameObject invDisplay;
 	Image invImage;
 	Text invText;
@@ -15,10 +22,27 @@ public class Inventory : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		inventory = new List<Item>();
-		current = null;
+		current = 0;
 		invDisplay = GameObject.Find("InventoryDisplay");
 		invImage = GameObject.Find ("InvImage").GetComponent<Image>();
 		invText = invDisplay.GetComponentInChildren<Text>();
+	}
+
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetButtonDown("Fire3") && !controller.status.dying) {
+			GetComponent<Inventory>().UseCurrent();
+		}
+		float scrollDir = Input.GetAxisRaw("Scroll");
+		if (scrollDir != 0) {
+			if (!scrollAxisInUse && inventory.Count > 0) {
+				Debug.Log(scrollDir);
+				GetComponent<Inventory>().SwapItem(scrollDir);
+				scrollAxisInUse = true;
+			}
+		} else {
+			scrollAxisInUse = false;
+		}
 	}
 
 	public List<Item> GetInventoryList() {
@@ -40,9 +64,9 @@ public class Inventory : MonoBehaviour {
 	}
 
 	public void UseCurrent() {
-		if (current && inventory.Count != 0) {
-			Debug.Log("Using " + current.GetName());
-			current.UseItem(gameObject);
+		if (inventory.Count > 0 && current <= inventory.Count - 1) {
+			Debug.Log("Using " + inventory[current].GetName());
+			inventory[current].UseItem(gameObject);
 			// Replace current slot with next item in inventory
 			ResetCurrent();
 		} else {
@@ -51,10 +75,12 @@ public class Inventory : MonoBehaviour {
 	}
 
 	public void ResetCurrent() {
-		current = (inventory.Count > 0)? inventory[0] : null;
-		if (current) {
-			invText.text = current.name;
-			invImage.sprite = current.sprite;
+		if (inventory.Count > 0) {
+			while (current > inventory.Count - 1) {
+				current--;
+			}
+			invText.text = inventory[current].name;
+			invImage.sprite = inventory[current].sprite;
 			invImage.color = new Color(1,1,1,1);
 		} else {
 			invText.text = "inventory";
@@ -73,5 +99,14 @@ public class Inventory : MonoBehaviour {
 		} else {
 			size = 0;
 		}
+	}
+
+	public void SwapItem(float direction) {
+		if (direction > 0) {
+			current = (current < inventory.Count - 1)? current + 1 : 0;
+		} else {
+			current = (current != 0 && current >= inventory.Count - 1)? current - 1 : inventory.Count - 1;
+		}
+		ResetCurrent ();
 	}
 }

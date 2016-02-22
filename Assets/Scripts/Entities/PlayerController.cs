@@ -73,10 +73,6 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown("Fire3") && !controller.status.dying) {
-			GetComponent<Inventory>().UseCurrent();
-		}
-
 		if (input.x != 0 && !controller.status.wallSliding) {
 			controller.status.facingDirection = (int)Mathf.Sign(input.x);
 		}

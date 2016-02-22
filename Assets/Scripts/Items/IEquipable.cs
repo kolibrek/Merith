@@ -3,7 +3,7 @@ using System.Collections;
 
 public interface IEquipable {
 
-	void Equip();
+	void Equip(GameObject user);
 
-	void Unequip();
+	void Unequip(GameObject user);
 }
