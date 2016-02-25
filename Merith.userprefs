@@ -1,14 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Entities/TerrainEntities/WaypointMover.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\PlatformPatroller.cs">
     <Files>
-      <File FileName="Assets/Scripts/Entities/KillableEnemy.cs" Line="29" Column="24" />
-      <File FileName="Assets/Scripts/Entities/Controller2D.cs" Line="129" Column="1" />
-      <File FileName="Assets/Scripts/Entities/Damager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/StatusDisplay.cs" Line="8" Column="30" />
-      <File FileName="Assets/Scripts/Entities/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Entities/PlayerAnimator.cs" Line="51" Column="3" />
-      <File FileName="Assets/Scripts/Entities/TerrainEntities/WaypointMover.cs" Line="46" Column="39" />
+      <File FileName="Assets\Scripts\Entities\PlatformPatroller.cs" Line="50" Column="32" />
+      <File FileName="Assets\Scripts\Entities\KillableEnemy.cs" Line="11" Column="46" />
+      <File FileName="Assets\Scripts\Entities\Controller2D.cs" Line="49" Column="67" />
+      <File FileName="Assets\Scripts\Entities\Damager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\StatusDisplay.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\PlayerController.cs" Line="57" Column="50" />
+      <File FileName="Assets\Scripts\Entities\PlayerAnimator.cs" Line="51" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
