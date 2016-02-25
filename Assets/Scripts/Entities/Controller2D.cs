@@ -46,7 +46,7 @@ public class Controller2D : MonoBehaviour {
 			}
 			status.colliders.Add(coll.gameObject);
 		}
-		if (!status.invulnerable && coll.gameObject.tag == "Damaging") {
+		if (!status.invulnerable && coll.gameObject.GetComponent<Damager>()) {
 			status.takingDamage = true;
 			status.damageTaken = coll.gameObject.GetComponent<Damager>().GetDamageAmount();
 		}
@@ -84,9 +84,6 @@ public class Controller2D : MonoBehaviour {
 			}
 		}
 		status.colliders.Remove(coll.gameObject);
-		/*if (status.colliders.Contains(coll.gameObject)) {
-
-		}*/
 	}
 
 	public struct CollisionStatus {
