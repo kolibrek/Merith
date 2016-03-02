@@ -1,14 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\PlatformPatroller.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\HealthController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Entities\PlatformPatroller.cs" Line="50" Column="32" />
-      <File FileName="Assets\Scripts\Entities\KillableEnemy.cs" Line="11" Column="46" />
-      <File FileName="Assets\Scripts\Entities\Controller2D.cs" Line="49" Column="67" />
-      <File FileName="Assets\Scripts\Entities\Damager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\StatusDisplay.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Entities\PlayerController.cs" Line="57" Column="50" />
-      <File FileName="Assets\Scripts\Entities\PlayerAnimator.cs" Line="51" Column="3" />
+      <File FileName="Assets\Scripts\Entities\PlayerController.cs" Line="63" Column="4" />
+      <File FileName="Assets\Scripts\Entities\HealthController.cs" Line="43" Column="12" />
+      <File FileName="Assets\Scripts\Entities\PlayerAttack.cs" Line="22" Column="38" />
+      <File FileName="Assets\Scripts\Entities\Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\GameOverDisplay.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\PlayerAnimator.cs" Line="21" Column="29" />
+      <File FileName="Assets\Scripts\Entities\Controller2D.cs" Line="95" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

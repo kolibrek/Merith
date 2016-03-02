@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f172b9076a5b1c1488c877ee92bdbbb4
-timeCreated: 1456017784
+timeCreated: 1456710943
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,7 @@ TextureImporter:
     21300036: Merith_32x_sheet_14
     21300038: Merith_32x_sheet_15
     21300040: Merith_32x_sheet_16
+    21300042: Merith_32x_sheet_17
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -235,6 +236,16 @@ TextureImporter:
         serializedVersion: 2
         x: 96
         y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Merith_32x_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
         width: 32
         height: 32
       alignment: 0

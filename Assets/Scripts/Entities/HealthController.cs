@@ -37,11 +37,11 @@ public class HealthController : MonoBehaviour {
 
 		if (health <= 0) {
 			controller.status.dying = true;
-			if (transform.position.z > -1) {
-				transform.position = transform.position - Vector3.forward;
+			if (gameObject.tag == "Player") {
+				Invoke("Die", 2.0f);
+			} else {
+				Die ();
 			}
-			//Physics2D.IgnoreLayerCollision(8,9);
-			Invoke("Die", 2.0f);
 			return;
 		}
 		if (health > maxHealth) {
@@ -55,8 +55,10 @@ public class HealthController : MonoBehaviour {
 	}
 
 	void Die() {
+		if (gameObject.tag == "Player") {
+			gameOverDisplay.Display(true);
+		}
 		gameObject.SetActive(false);
-		gameOverDisplay.Display(true);
 	}
 
 	public int GetHealth() {

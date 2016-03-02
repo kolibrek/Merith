@@ -92,6 +92,7 @@ public class Controller2D : MonoBehaviour {
 		public bool left, right;
 		public bool wallSliding;
 		public bool riding;
+		public bool attacking;
 		public float slopeAngle;
 		public List<GameObject> colliders;
 		public Vector2 input;

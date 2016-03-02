@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Entities\KillableEnemy.cs" />
      <Compile Include="Assets\Scripts\Entities\PlatformPatroller.cs" />
      <Compile Include="Assets\Scripts\Entities\PlayerAnimator.cs" />
+     <Compile Include="Assets\Scripts\Entities\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\Entities\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Entities\TerrainEntities\ObjectiveEntity.cs" />
      <Compile Include="Assets\Scripts\Entities\TerrainEntities\Platform.cs" />

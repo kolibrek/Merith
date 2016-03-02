@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public float minJumpHeight = 1f;
 	float timeToJumpApex;
 	public int maxMultiJumps = 1;
+	public float attackCoolDown = 2;
+	float attackTimer;
 	float maxJumpVelocity;
 	float minJumpVelocity;
 	
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour {
 	Controller2D controller;
 	Rigidbody2D rb;
 
+	public GameObject attackObject;
+
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();
@@ -44,7 +48,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.timeScale == 0) {
+		if (Time.timeScale == 0 || controller.status.dying) {
 			return;
 		}
 		Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -53,9 +57,10 @@ public class PlayerController : MonoBehaviour {
 		int wallDirX = (controller.status.left)? -1 : 1;
 
 		// Determine velocity.x
-		float targetVelocityX = input.x * speed;
-		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.status.below)? accelerationTimeGrounded : accelerationTimeAirborne);
-
+		if (!controller.status.attacking) {
+			float targetVelocityX = input.x * speed;
+			velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.status.below)? accelerationTimeGrounded : accelerationTimeAirborne);
+		}
 		// Determine velocity.y
 		if (controller.status.below || controller.status.left || controller.status.right) {
 			jumpsLeft = maxMultiJumps;
@@ -71,6 +76,20 @@ public class PlayerController : MonoBehaviour {
 			if (velocity.y > minJumpVelocity) {
 				velocity.y = minJumpVelocity;
 			}
+		}
+
+		if (Input.GetButtonDown("Fire1") && attackTimer <= 0) {
+			controller.status.attacking = true;
+			GameObject attackClone = Instantiate<GameObject>(attackObject);
+			attackClone.transform.SetParent(this.transform);
+			attackClone.transform.localPosition = new Vector3(0.8f,1f,0f);
+			attackTimer = attackCoolDown;
+		}
+		if (attackTimer > 0) {
+			attackTimer -= Time.deltaTime;
+		}
+		if (Input.GetButtonUp("Fire1")) {
+			controller.status.attacking = false;
 		}
 
 		if (input.x != 0 && !controller.status.wallSliding) {

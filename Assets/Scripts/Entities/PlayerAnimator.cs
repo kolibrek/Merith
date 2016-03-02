@@ -31,6 +31,7 @@ public class PlayerAnimator : MonoBehaviour {
 		}
 		anim.SetBool("wallsliding", controller.status.wallSliding);
 		anim.SetFloat("velocity", Mathf.Abs(rb.velocity.x));
+		anim.SetBool ("attacking", controller.status.attacking);
 
 		if (controller.status.facingDirection != Mathf.Sign(rb.transform.localScale.x)) {
 			Flip();
