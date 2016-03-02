@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour {
 			controller.status.attacking = true;
 			GameObject attackClone = Instantiate<GameObject>(attackObject);
 			attackClone.transform.SetParent(this.transform);
-			attackClone.transform.localScale = this.transform.localScale;
+			//attackClone.transform.localScale = this.transform.localScale;
 			attackClone.transform.localPosition = new Vector3(1.2f,0f,0f);
 			attackTimer = attackCoolDown;
 		}

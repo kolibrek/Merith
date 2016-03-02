@@ -58,6 +58,7 @@ public class HealthController : MonoBehaviour {
 		if (gameObject.tag == "Player") {
 			gameOverDisplay.Display(true);
 		}
+		GameObject.Find ("Player").GetComponent<Controller2D> ().status.colliders.Remove (gameObject);
 		gameObject.SetActive(false);
 	}
 
