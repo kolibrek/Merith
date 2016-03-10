@@ -24,7 +24,6 @@ public class PlayerAnimator : MonoBehaviour {
 		if (!(controller.status.below || controller.status.left || controller.status.right)) {
 			anim.SetBool("falling", rb.velocity.y < 0);
 			anim.SetBool("jumping", rb.velocity.y > 0);
-			anim.SetBool("falling", rb.velocity.y < 0);
 		} else {
 			anim.SetBool("jumping", false);
 			anim.SetBool("falling", false);
